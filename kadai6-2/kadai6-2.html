@@ -1,0 +1,43 @@
+<!DOCTYPE>
+<html>
+<head>
+    <meta charset="UTF-8">
+<title>座席の予約</title>
+
+<style>
+        .status {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>座席の予約</h1>
+
+    <p>
+        東京会場
+        <span id="status" class="status">（予約受付中）</span>
+    </p>
+
+    <button id="reserveButton" onclick="reserve()">
+        予約する
+    </button>
+
+    <script>
+        function reserve() {
+            document.getElementById("status").innerHTML =
+                "（予約済み）";
+
+            document.getElementById("reserveButton").remove();
+
+            document.getElementById("message").innerHTML =
+                "<b>ありがとうございました</b>";
+        }
+    </script>
+
+    <p id="message"></p>
+
+</body>
+</html>
