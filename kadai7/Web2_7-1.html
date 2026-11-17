@@ -1,0 +1,24 @@
+<!DOCTYPE>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>挨拶プログラム</title>
+</head>
+<body>
+<script>
+function greetings() {
+    const today = new Date()
+    const hour = today.getHours()
+
+    if (hour >= 5 && hour < 9)
+return "おはようございます"
+    else if (hour < 18) return "こんにちは"
+    else return "こんばんは"
+}
+
+console.log(greetings())
+document.write(greetings())
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ダイアログ</title>
+</head>
+<body>
+<script>
+function ask(question,yes,no) {
+    if (confirm(question)) yes()
+    else no()
+}
+
+ask(
+    "次の操作を始めてもいい？",
+    function() {alert("移動する")},
+    function() {alert("このページに留まる")}
+)
+</script>
+</body>
+</html>
