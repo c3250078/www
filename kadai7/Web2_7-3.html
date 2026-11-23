@@ -3,12 +3,11 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>簡単な電卓</title>
+    <title>計算プログラム</title>
 </head>
 <body>
 
-    <h1>簡単な電卓</h1>
+    <h1>計算プログラム</h1>
 
     <p>1つ目の数字</p>
     <input type="number" id="op1" value="10">
@@ -29,7 +28,7 @@
     <button onclick="calculate()">計算する</button>
 
     <h2>計算結果</h2>
-    <p id="result">ここに結果が表示されます</p>
+    <p id="result">15</p>
 
     <script>
         function calculateResult(op1, op2, operator) {
@@ -68,12 +67,12 @@
 
             try {
                 if (operator === "/" && op2 === 0) {
-                    throw new Error("0で割ることはできません");
+                    throw new Error("0では割れません");
                 }
 
-                const answer = calculateResult(op1, op2, operator);
+                const result = calculateResult(op1, op2, operator);
 
-                document.getElementById("result").textContent = answer;
+                document.getElementById("result").textContent = result;
 
             } catch (error) {
                 document.getElementById("result").textContent = error.message;
