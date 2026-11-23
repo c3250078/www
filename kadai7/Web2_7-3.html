@@ -1,66 +1,49 @@
-<!DOCTYPE>
+
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <title>演算</title>
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        input, select, button {
-            padding: 10px;
-            margin: 5px;
-            font-size: 16px;
-        }
-
-        button {
-            cursor: pointer;
-        }
-
-        #result {
-            margin-top: 20px;
-            font-size: 20px;
-        }
-    </style>
+    <title>計算プログラム</title>
 </head>
 <body>
-    <h1>演算</h1>
-    <input type="number" id="op1" placeholder="数字１">
 
-    <select id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="*">*</option>
-        <option value="/">/</option>
-    </select>
-    <input type="number" id="op2" placeholder="数字２">
-    
-<script>
-    
-    function calculateResult(op1,op2,operator){
-        let result = 0
-        switch(operator){
-            case "+":
-                result = op1 + op2
-                break
-            case "-":
-                result = op1 + op2
-                break
-            case "*":
-                result = op1 + op2
-                break
-            case "/":
-                result = op1 + op2
-                break
-            default:
-                throw new SyntaxError("演算子は「+,-,*,/」の中から選んでください")
+    <h1>計算プログラム</h1>
+
+    <script>
+        function calculateResult(op1, op2, operator) {
+            let result = 0;
+
+            switch (operator) {
+                case "+":
+                    result = op1 + op2;
+                    break;
+
+                case "-":
+                    result = op1 - op2;
+                    break;
+
+                case "*":
+                    result = op1 * op2;
+                    break;
+
+                case "/":
+                    result = op1 / op2;
+                    break;
+
+                default:
+                    throw new SyntaxError(
+                        "演算子は「+, -, *, /」の中から選んでください"
+                    );
+            }
+
+            return result;
         }
-        return result
-    }
-</script>
-</head>
+
+        console.log(calculateResult(10, 5, "+"));
+        console.log(calculateResult(10, 5, "-"));
+        console.log(calculateResult(10, 5, "*"));
+        console.log(calculateResult(10, 5, "/"));
+    </script>
+
+</body>
 </html>
