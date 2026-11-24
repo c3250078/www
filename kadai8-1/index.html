@@ -1,0 +1,63 @@
+<!DOCTYPE>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+<title>人口の多い国ランキング</title>
+
+<style>
+    h1 {
+        font-size: 30px;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+    
+    img {
+        width:64px;
+        height: 44px;
+        border: 1px solid black;
+        vertical-align: middle;
+    }
+
+    button {
+        margin-top: 15px;
+        padding: 5px 10px;
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>人口の多い国ランキング</h1>
+<ol id="continue">
+    <li>中国</li>
+    <li>インド</li>
+    <li>アメリカ</li>
+    <li>インドネシア</li>
+</ol>
+<button onclick="changeCountry()">国旗で表示</button>
+
+<script>
+    function changeCountry() {
+        const flags = [
+        "kadai8-1/flag_CHN.jpg",
+        "kadai8-1/flag_IND.jpg",
+        "kadai8-1/flag_USA.jpg",
+        "kadai8-1/flag_IDN.jpg"
+        ];
+const list = document.getElementById("countryList");
+
+            const items = list.getElementsByTagName("li");
+
+            for (let i = 0; i < flags.length; i++) {
+
+                items[i].innerHTML =
+                    '<img src="' + flags[i] + '" alt="国旗">';
+
+            }
+        }
+    </script>
+
+</body>
+</html>
