@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Click Counter ★ switch構文</title>
+<title>Click Counter ★ for構文</title>
 
 <style>
 body {
@@ -55,10 +55,6 @@ button {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-}
-
-button:hover {
-    opacity: 0.85;
 }
 
 .result-title {
@@ -122,57 +118,77 @@ JavaScriptの switch 構文を使って処理を作ってみましょう。
 
 <script>
 
-// クリック回数
+// クリック回数を保存
 let count = 0;
 
 // ボタンをクリックしたときの処理
 function clickCounter() {
 
+    // クリック回数を1増やす
     count++;
 
+    // 結果を保存する変数
     let message = "";
 
-    // クリック回数によって処理を分岐
+    // switch構文で処理を分岐
     switch (count) {
 
         // 1回目：★を1個表示
-        case 1:
-            message = "★";
+        case 1: {
+            for (let i = 1; i <= 1; i++) {
+                message += "★";
+            }
             break;
+        }
 
         // 2回目：★を5個表示
-        case 2:
-            message = "★★★★★";
+        case 2: {
+            for (let i = 1; i <= 5; i++) {
+                message += "★";
+            }
             break;
+        }
 
         // 3回目：1～5までの数字を表示
-        case 3:
-            message = "1 2 3 4 5";
+        case 3: {
+            for (let i = 1; i <= 5; i++) {
+                message += i + " ";
+            }
             break;
+        }
 
         // 4回目：偶数のみ表示
-        case 4:
-            message = "2 4 6 8 10";
+        case 4: {
+            for (let i = 2; i <= 10; i += 2) {
+                message += i + " ";
+            }
             break;
+        }
 
-        // 5回目：1～5までの合計値
-        case 5:
+        // 5回目：1～5までの合計値を計算
+        case 5: {
             let total = 0;
 
-            total = 5 * (5 + 1) / 2;
+            for (let i = 1; i <= count; i++) {
+                total += i;
+            }
 
             message = "合計値は " + total + " です！";
             break;
+        }
 
         // 6回目以降：カウントをリセット
-        default:
+        default: {
             message = "クリアしました。\nカウントを0に戻します。";
             count = 0;
             break;
+        }
     }
 
-    // 画面にクリック回数と結果を表示
+    // クリック回数を画面に表示
     document.getElementById("count").textContent = count;
+
+    // 実行結果を画面に表示
     document.getElementById("result").textContent = message;
 
 }
