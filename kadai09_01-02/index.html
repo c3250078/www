@@ -1,0 +1,197 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter ★ for構文</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 30px 15px;
+            font-family: "Noto Sans JP", sans-serif;
+            background: linear-gradient(135deg, #f3f5ff, #e4ecff);
+            color: #222;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 30px;
+            margin-bottom: 12px;
+        }
+
+        .description {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 455px;
+            margin: 0 auto;
+            padding: 35px;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .counter {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        #count {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2864ed;
+            margin: 0 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 40px;
+            background: linear-gradient(90deg, #2864ed, #5142e9);
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(40, 100, 237, 0.3);
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .result-title {
+            text-align: left;
+            margin-top: 28px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #result {
+            min-height: 70px;
+            padding: 25px 10px;
+            border: 1px solid #dce4f0;
+            border-radius: 15px;
+            background: #f8fafc;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: pre-wrap;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 35px;
+            color: #66809e;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Click Counter ★ for構文</h1>
+
+    <p class="description">
+        ボタンをクリックすると、クリック回数に応じて結果が変わります。<br>
+        JavaScriptの for 構文を使って処理を作ってみましょう。
+    </p>
+
+    <div class="container">
+
+        <div class="counter">
+            クリック回数
+            <span id="count">0</span>回
+        </div>
+
+        <button onclick="clickCounter()">クリック</button>
+
+        <div class="result-title">結果</div>
+
+        <div id="result">
+            ここに結果が表示されます
+        </div>
+
+    </div>
+
+    <footer>
+        © JavaScript Practice – for構文 & クリックイベント
+    </footer>
+
+    <script>
+        // クリック回数を保存する変数
+        let count = 0;
+
+        // ボタンをクリックしたときの処理
+        function clickCounter() {
+
+            // クリック回数を1増やす
+            count++;
+
+            // 結果を入れる変数
+            let message = "";
+
+            // 1回目：★を1個表示
+            if (count == 1) {
+
+                for (let i = 1; i <= 1; i++) {
+                    message += "★";
+                }
+
+            // 2回目：★を5個表示
+            } else if (count == 2) {
+
+                for (let i = 1; i <= 5; i++) {
+                    message += "★";
+                }
+
+            // 3回目：1～5までの数字を表示
+            } else if (count == 3) {
+
+                for (let i = 1; i <= 5; i++) {
+                    message += i + " ";
+                }
+
+            // 4回目：偶数のみ表示
+            } else if (count == 4) {
+
+                for (let i = 2; i <= 10; i += 2) {
+                    message += i + " ";
+                }
+
+            // 5回目：1～5までの合計値を計算
+            } else if (count == 5) {
+
+                let total = 0;
+
+                for (let i = 1; i <= count; i++) {
+                    total += i;
+                }
+
+                message = "合計値は " + total + " です！";
+
+            // 6回目以降：カウントをリセット
+            } else {
+
+                message = "クリアしました。\nカウントを0に戻します。";
+
+                count = 0;
+            }
+
+            // 画面にクリック回数を表示
+            document.getElementById("count").textContent = count;
+
+            // 画面に実行結果を表示
+            document.getElementById("result").textContent = message;
+        }
+    </script>
+
+</body>
+</html>
